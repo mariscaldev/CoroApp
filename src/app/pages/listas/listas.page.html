@@ -1,0 +1,34 @@
+<app-navbar [title]="'Listas'" [showBack]="false"></app-navbar>
+
+<ion-content class="background-content">
+  <div class="overlay"></div>
+  <div class="content-wrapper">
+
+    <ion-searchbar
+      [(ngModel)]="searchTerm"
+      (ionInput)="filterListas()"
+      placeholder="Buscar lista"
+      showClearButton="always">
+    </ion-searchbar>
+
+    <ion-loading *ngIf="loading" message="Cargando listas..." spinner="circles"></ion-loading>
+
+    <div *ngIf="!loading && filteredListas.length === 0" class="no-results">
+      <div class="emoji">😔</div>
+      <div class="message">No se encontraron listas</div>
+    </div>
+
+    <div *ngIf="!loading && filteredListas.length > 0">
+      <div class="song-list" *ngFor="let lista of filteredListas" [@fadeIn]>
+        <div class="song-item" (click)="verLista(lista.id)">
+          <span class="song-label">
+            <b class="fas fa-list icon-musical-note"></b> {{ lista.nombre }}
+          </span>
+          <br>
+          <small class="song-date">{{ lista.fecha | date: 'dd/MM/yyyy' }}</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

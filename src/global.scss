@@ -33,5 +33,152 @@
  */
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+@import "@ionic/angular/css/palettes/dark.class.css";
+/* @import "@ionic/angular/css/palettes/dark.system.css"; */
+
+/* Tipografía global CoroApp */
+
+body,
+ion-app,
+ion-content,
+ion-button,
+ion-item,
+ion-list,
+ion-toolbar,
+ion-menu,
+ion-note,
+ion-label,
+ion-title,
+ion-input,
+ion-textarea,
+ion-select,
+ion-text {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* Para headers: títulos más marcados */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ion-title {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Para labels de formularios e inputs */
+ion-label {
+  font-weight: 400;
+}
+
+/* Mejoras en botones */
+ion-button {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Mejorar los ion-item (listas) */
+ion-item {
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+}
+
+
+/* Ajuste de tamaño de letra automático según dispositivo */
+
+body {
+  font-size: 16px;
+  /* Tamaño base para celular */
+}
+
+/* Para pantallas más grandes como tablets y escritorio */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+    /* Aumentamos la fuente en tablets */
+  }
+}
+
+/* Para pantallas aún más grandes */
+@media (min-width: 1024px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+
+/* Animaciones suaves al cambiar páginas */
+ion-router-outlet {
+  --ion-transition-duration: 300ms;
+}
+
+ion-page {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+ion-page[aria-hidden="true"] {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+ion-page[aria-hidden="false"] {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+#splash-screen {
+  background: var(--ion-background-color, #111010);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+/* Inicialmente ocultamos el app-root */
+app-root {
+  visibility: hidden;
+}
+
+/* Cuando Ionic carga */
+html.ion-page-loaded app-root {
+  visibility: visible;
+}
+
+/* Splash screen hace fadeOut al cargar */
+html.ion-page-loaded #splash-screen {
+  animation: fadeOutZoomSplash 0.7s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeOutSplash {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOutZoomSplash {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}

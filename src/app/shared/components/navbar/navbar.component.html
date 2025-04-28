@@ -1,0 +1,23 @@
+<ion-header [class.scrolled]="scrolled" translucent="true" class="glass-navbar">
+  <ion-toolbar>
+
+    <!-- Botón de volver o espacio vacío -->
+    <ion-buttons slot="start">
+      <ion-button *ngIf="showBack; else emptySpace" (click)="goBack()" class="navbar-button">
+        <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+      <ng-template #emptySpace>
+        <div style="width: 48px;"></div> <!-- 👈 Para que el menú esté a la derecha pero el title siga centrado -->
+      </ng-template>
+    </ion-buttons>
+
+    <!-- Título centrado -->
+    <ion-title class="navbar-title">{{ title }}</ion-title>
+
+    <!-- Botón menú SIEMPRE A LA DERECHA -->
+    <ion-buttons slot="end">
+      <ion-menu-button class="navbar-button"></ion-menu-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>

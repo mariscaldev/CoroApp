@@ -1,0 +1,26 @@
+<div class="stars-background"></div>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="content">
+      <ion-img class="img" src="assets/coro.jpg" alt="CoroApp"></ion-img>
+
+      <h1>Bienvenido a<br /><span>CoroApp</span></h1>
+
+      <ion-icon name="arrow-down"></ion-icon>
+
+      <div class="center-content">
+        <ion-button color="primary" shape="round" (click)="goToHome()">
+          <ion-icon slot="start" name="musical-notes-outline"></ion-icon> Ingresar
+          <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer translucent="true" class="ion-no-border ion-text-center">
+  <ion-toolbar>
+    <p>Parroquia San Pedro y San Pablo</p>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,17 @@
+<app-navbar [title]="cancion?.nombre" [showBack]="true" [backUrl]="volverUrl"></app-navbar>
+
+<ion-content class="ion-padding" *ngIf="cancion">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ cancion.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Introducción:</strong> {{ cancion.introduccion }}</p>
+      <p><strong>Letra 1:</strong> {{ cancion.letra1 }}</p>
+      <p><strong>Interludio:</strong> {{ cancion.interludio }}</p>
+      <p><strong>Letra 2:</strong> {{ cancion.letra2 }}</p>
+      <p><strong>Final:</strong> {{ cancion.final }}</p>
+      <p><strong>Etiqueta:</strong> {{ cancion.etiqueta }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

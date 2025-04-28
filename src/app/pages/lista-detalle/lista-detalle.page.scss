@@ -1,0 +1,54 @@
+.contenido {
+  margin: 0 10px;
+}
+
+ion-header {
+  --background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-header {
+  --background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+ion-toolbar {
+  --color: white;
+}
+
+.list-header {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.glass-item {
+  --background: transparent;
+  --color: white;
+}
+
+.song-list {
+  margin-top: 5px;
+}
+
+.glass-song {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.glass-song:hover {
+  transform: scale(1.03);
+}
+
+.no-results {
+  color: #111010;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 18px;
+}

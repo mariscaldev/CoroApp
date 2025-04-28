@@ -1,0 +1,48 @@
+<app-navbar [title]="lista?.nombre || 'Detalle Lista'" [showBack]="true" [backUrl]="'/listas'"></app-navbar>
+
+<ion-content class="background-content">
+  <div class="overlay"></div>
+  <div class="content-wrapper contenido">
+    <ion-loading
+      *ngIf="loading"
+      message="Cargando lista..."
+      spinner="circles"
+    ></ion-loading>
+
+    <div *ngIf="!loading && cancionesDisponibles()">
+      <ng-container *ngFor="let section of sections">
+        <ion-item
+          (click)="section.open = !section.open"
+          color="light"
+          lines="full"
+          class="list-header glass-item"
+        >
+          <ion-label>{{ section.name }}</ion-label>
+          <ion-icon
+            slot="end"
+            [name]="section.open ? 'chevron-up-outline' : 'chevron-down-outline'"
+          >
+          </ion-icon>
+        </ion-item>
+        <div *ngIf="section.open" @expandCollapse class="song-list">
+          <ion-list lines="none">
+            <ion-item
+              *ngFor="let song of section.songs"
+              class="list-item glass-song"
+              (click)="verCancion(song.id)"
+              @fadeInStagger
+            >
+              <!-- 👈 Aquí -->
+              <ion-label>{{ song.nombre }}</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ng-container>
+    </div>
+
+    <div *ngIf="!loading && !cancionesDisponibles()" class="no-results">
+      <div class="emoji">😔</div>
+      <div class="message">No se encontraron canciones en esta lista</div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,34 @@
+<app-navbar [title]="'Canciones'" [showBack]="false"></app-navbar>
+
+<ion-content class="background-content">
+  <div class="overlay"></div>
+  <div class="content-wrapper">
+
+    <!-- 🔵 Mover el Searchbar DENTRO de ion-content -->
+    <ion-searchbar
+      [(ngModel)]="searchTerm"
+      (ionInput)="filterSongs()"
+      placeholder="Buscar canción"
+      showClearButton="always">
+    </ion-searchbar>
+
+    <ion-loading *ngIf="loading" message="Cargando canciones..." spinner="circles"></ion-loading>
+
+    <div *ngIf="!loading && filteredSongs.length === 0" class="no-results">
+      <div class="emoji">😔</div>
+      <div class="message">No se encontraron canciones</div>
+    </div>
+    
+
+    <div *ngIf="!loading && filteredSongs.length > 0">
+      <div class="song-list" *ngFor="let song of filteredSongs" [@fadeIn]>
+        <div class="song-item" (click)="openSongPage(song.id)">
+          <span class="song-label">
+            <b class="fas fa-music icon-musical-note"></b> {{ song.nombre }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>
