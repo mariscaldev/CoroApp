@@ -36,7 +36,17 @@
                 "output": "."
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": [
+              {
+                "input": "src/global.scss",
+                "inject": true,
+                "bundleName": "styles"
+              },
+              {
+                "input": "src/theme/variables.scss",
+                "inject": true
+              }
+            ],
             "scripts": []
           },
           "configurations": {
@@ -109,7 +119,17 @@
                 "output": "assets"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": [
+              {
+                "input": "src/global.scss",
+                "inject": true,
+                "bundleName": "styles"
+              },
+              {
+                "input": "src/theme/variables.scss",
+                "inject": true
+              }
+            ],
             "scripts": []
           },
           "configurations": {
